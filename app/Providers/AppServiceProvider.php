@@ -2,10 +2,34 @@
 
 namespace App\Providers;
 
+use App\Http\Helpers\ErrorLogger;
+//use App\Repositories\Interfaces\IUserProfileRepository;
+//use App\Repositories\Interfaces\IUserRepository;
+//use App\Repositories\UserProfileRepository;
+//use App\Repositories\UserRepository;
+//use App\Services\Interfaces\IUserProfileService;
+//use App\Services\Interfaces\IUserService;
+//use App\Services\UserProfileService;
+//use App\Services\UserService;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+use Psr\Log\LoggerInterface;
 
 class AppServiceProvider extends ServiceProvider
 {
+
+
+	public $bindings = [
+
+		# TODO
+//		IUserService::class => UserService::class,
+//		IUserProfileService::class => UserProfileService::class,
+//		IUserRepository::class => UserRepository::class,
+//		IUserProfileRepository::class => UserProfileRepository::class,
+
+		LoggerInterface::class => ErrorLogger::class,
+	];
+
     /**
      * Register any application services.
      *
@@ -23,6 +47,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Schema::defaultStringLength(191);
+
+        Schema::enableForeignKeyConstraints();
     }
 }

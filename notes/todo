@@ -10,6 +10,14 @@
 - Plan out the routes
 - Plan out the controllers
 
+- Country model
+	- popuplate it with countries
+- State model	
+	- popuplate it with countries
+
+- What are policies?
+	- UserPolicy
+
 - user profile
 - user reviews/comments
 - user ratings
