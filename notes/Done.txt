@@ -1,0 +1,23 @@
+
+- Update user profile info
+- Handle file upload for user profile pic
+
+
+
+------------------------------------------------------------------------
+- When getting user get profile as well
+
+- user last login 
+
+- Add Profile pic to UserProfile
+
+- Laravel Policies?
+
+- Exception handling / throwing
+
+- Scopes
+	- Scope middleware in controllers?
+- Get image file
+- UserProfile -> user_id:unique
+
+- extend Handler.php

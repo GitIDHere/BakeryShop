@@ -1,0 +1,128 @@
+------------- Clear the cache -------------
+
+php artisan config:clear
+php artisan cache:clear
+composer dump-autoload
+php artisan view:clear
+php artisan route:clear
+
+------------------------------------------------------
+
+php artisan migrate
+
+php artisan migrate:fresh
+
+php artisan make:migration {migration_file_name} --create={table_name}
+
+
+------------------------------------------------------
+
+php artisan make:request {form_validator}
+
+------------------------------------------------------
+
+php artisan key:generate
+
+php artisan list
+
+php artisan serve
+
+php artisan serve --host=chatapp.com --port=8000
+
+
+php artisan make:controller test/TestController
+
+------------------------------------------------------
+
+php artisan make:model -m
+
+------------------------------------------------------
+
+-------------- Passport --------------
+
+composer require laravel/passport
+
+php artisan migrate
+
+php artisan passport:install
+
+Deploying passport to production server
+	https://laravel.com/docs/7.x/passport#deploying-passport
+php artisan passport:keys
+
+php artisan passport:client --password
+
+
+
+------------------------------------------------------
+
+
+
+php artisan migrate
+
+php artisan passport:install
+
+php artisan passport:keys
+
+
+
+- Relations
+$user->userProfile()->first()->with('user')->first()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

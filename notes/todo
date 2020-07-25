@@ -1,0 +1,83 @@
+- Set up a new project
+- Setup the Git repo
+- General response message
+
+
+
+
+-----------------------------------------------------------------
+
+- Plan out the routes
+- Plan out the controllers
+
+- user profile
+- user reviews/comments
+- user ratings
+- login
+- logout
+- add item to basket
+- browse items
+- integrate Strip API payment
+- Search history
+- Profile visibility controls
+- Pretty the URL
+- Validate the requests
+
+- set up seller profiles
+- list items for sales
+	- quantity
+	- prices
+	- delivery
+	- region available to sell in
+
+
+- item
+	- image
+	- description
+	- title
+	- quantity
+	- related items
+
+- Ajax sending of the messages
+	- popup to confirm that the message has been sent
+
+
+- Admin area where they can see all sales and reports
+
+------------------------------------------------------------------------
+
+
+- User Profile
+- Delete account
+- If a user has the authority to perform an action
+	- Scopes
+- Validate POST fields
+- Hide attributes from JSON
+- Create the database
+- Set up middleware
+- Set up error logging
+	- Exception handling and logging
+- API create tokens
+	- OAuth2??
+- Store user IP to cross reference the requests
+- Create middleware to help with requests coming through
+- Pretty the URL
+- Validate the requests
+- Get the online status of friends
+
+- USE WEBSOCKETS TO BROADCAST EVENTS
+- Set up the file storage
+	(how will this be cached in React?)
+
+
+
+
+- Autoload the profile pic as a file object when the record is retrieved
+
+
+
+
+
+
+
+

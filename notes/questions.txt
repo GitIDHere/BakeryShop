@@ -1,0 +1,21 @@
+What are components and slots?
+
+$request->flashExcept('password');
+
+- What are providers?
+
+- api middleware, like web middleware?
+
+- Enable CORS?
+
+
+
+
+
+
+
+
+
+
+
+https://laravel.com/docs/7.x/passport#requesting-tokens
