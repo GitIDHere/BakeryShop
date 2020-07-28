@@ -1,6 +1,4 @@
-<?php
-
-namespace App\Http\Requests;
+<?php namespace App\Http\FormRequests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -25,8 +23,6 @@ class UserRegisterValidator extends FormRequest
 
 			'email.required' => 'Please provide an email address',
 			'email.between' => 'The email must be between 5 and 250 characters long',
-
-
 		];
 	}
 
@@ -46,10 +42,7 @@ class UserRegisterValidator extends FormRequest
 			'address_line_one' => 'required|between:3,50',
 			'address_line_two' => 'required|between:3,50',
 			'city' => 'required|between:3,50',
-			'country_id' => 'required|size:2',
 			'postcode' => 'nullable|size:between:6,8',
-			'usa_state_id' => 'nullable|size:2',
-			'zip' => 'nullable|between:3,10',
         ];
     }
 }

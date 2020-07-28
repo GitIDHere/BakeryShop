@@ -1,0 +1,16 @@
+a.site-btn :hover {
+  color: #fff;
+}
+
+input.error {
+  border: 2px solid red;
+}
+
+.form-error ul li {
+  margin-bottom: 5px;
+}
+
+form input.is-invalid {
+  border: 2px solid red;
+}
+

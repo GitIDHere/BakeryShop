@@ -27,10 +27,12 @@ php artisan list
 
 php artisan serve
 
-php artisan serve --host=chatapp.com --port=8000
+php artisan serve --host=bakeryshop.com --port=8000
 
 
 php artisan make:controller test/TestController
+
+php artisan make:controller {controller_name} --resource
 
 ------------------------------------------------------
 

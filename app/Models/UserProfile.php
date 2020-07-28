@@ -12,17 +12,12 @@ class UserProfile extends Model
 		'address_line_one',
 		'address_line_two',
 		'city',
-		'country_id',
 		'postcode',
-		'usa_state_id',
-		'zip',
 	];
 
 	// If you want to extra info to the displayed model
 	protected $appends = [
-		//TODO
-		// - country_name
-		// - state_name
+
 	];
 
 	protected $hidden = [
