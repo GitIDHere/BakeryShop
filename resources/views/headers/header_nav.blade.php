@@ -12,7 +12,7 @@
 
             <div class="col-xl-3 col-lg-2">
                 <div class="header__logo">
-                    <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                    <a href="/"><img src="img/logo.png" alt=""></a>
                 </div>
             </div>
 
@@ -28,8 +28,12 @@
             <div class="col-lg-3">
                 <div class="header__right">
                     <div class="header__right__auth">
-                        <a href="{{route('user.login')}}">Login</a>
-                        <a href="#">Register</a>
+                        @if (\Illuminate\Support\Facades\Auth::check())
+                            <a href="{{\Illuminate\Support\Facades\Auth::logout()}}">Logout</a>
+                        @else
+                            <a href="{{route('show_login_form')}}">Login</a>
+                            <a href="{{route('show_register_form')}}">Register</a>
+                        @endif
                     </div>
                     <x-nav-basket-widget/>
                 </div>

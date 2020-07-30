@@ -11,8 +11,10 @@ const mix = require('laravel-mix');
  |
  */
 
+mix.js('resources/js/app.js', 'public/js');
+
 mix.sass('resources/sass/app.scss', 'public/css')
-    .sass('resources/sass/style.scss', 'public/css');
+    .sass('resources/sass/style.scss', 'public/css').version();
 
 mix.styles([
     'resources/css/bootstrap.min.css',
@@ -24,24 +26,3 @@ mix.styles([
     'resources/css/slicknav.min.css',
     'resources/css/style.css',
 ], 'public/css/app_css.css');
-
-// mix.scripts([
-//     'resources/js/laravel_bootstrap.js',
-//     'resources/js/jquery-ui.min.js',
-//     'resources/js/jquery.magnific-popup.min.js',
-//     'resources/js/mixitup.min.js',
-//     'resources/js/jquery.countdown.min.js',
-//     'resources/js/jquery.slicknav.js',
-//     'resources/js/owl.carousel.min.js',
-//     'resources/js/jquery.nicescroll.min.js',
-//     'resources/js/bootstrap.min.js',
-//     'resources/js/template_main.js',
-//     'resources/js/app.js',
-// ], 'public/js/app_js.js')
-//     .extract(['jquery', 'popper.js'], 'js/vendor.js')
-//     .version()
-// ;
-
-// mix.js('resources/js/app_package.js', 'public/js/app_js.js')
-//     .extract(['jquery', 'popper.js'])
-// ;

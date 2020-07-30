@@ -1,28 +1,8 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 
-a.site-btn{
-  :hover {
-    color: #fff;
-  }
-}
+// Variables
+@import 'variables';
 
-input.error {
-  border: 2px solid red;
-}
-
-.form-error{
-  ul {
-    li {
-      margin-bottom: 5px;
-    }
-  }
-}
-
-form {
-  input.is-invalid {
-    border: 2px solid red;
-  }
-  label {
-    margin-left: 3px;
-  }
-}
-
+// Bootstrap
+//@import '~bootstrap/scss/bootstrap';

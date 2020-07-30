@@ -11,8 +11,8 @@
     </div>
     <div id="mobile-menu-wrap"></div>
     <div class="offcanvas__auth">
-        <a href="{{route('user.login')}}">Login</a>
-        <a href="#">Register</a>
+        <a href="{{route('show_login_form')}}">Login</a>
+        <a href="{{route('show_register_form')}}">Register</a>
     </div>
 </div>
 <!-- Offcanvas Menu End -->

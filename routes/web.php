@@ -13,12 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('master');
-});
+Route::get('/', 'HomeController@showHomepage');
+Route::get('/home', 'HomeController@showHomepage');
 
-Route::get('/login', 'LoginRegisterController@showLogin')->name('user.login');
-Route::post('/login', 'LoginRegisterController@loginUser');
+Route::get('/login', 'Auth\LoginController@showLoginForm')->name('show_login_form');
+Route::post('/login', 'Auth\LoginController@loginUser')->name('login_user');
 
-Route::get('/register', 'LoginRegisterController@showRegister')->name('user.register');
-Route::post('/register', 'LoginRegisterController@registerUser');
+Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('show_register_form');
+Route::post('/register', 'Auth\RegisterController@register')->name('register_user');
+
+# TODO - Implement custom routes
+//Auth::routes();
