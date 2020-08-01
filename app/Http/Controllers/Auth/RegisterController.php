@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use App\Services\Interfaces\IUserProfileService;
+use App\Services\Interfaces\IUserAddressService;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
@@ -32,25 +32,17 @@ class RegisterController extends Controller
 		'password' => ['required', 'string', 'between:5,50', 'confirmed'],
 		'first_name' => ['required', 'alpha', 'between:2,30'],
 		'surname' => ['required', 'alpha', 'between:2,30'],
-		'address_line_one' => ['required', 'between:3,50'],
-		'address_line_two' => ['required', 'between:3,50'],
-		'city' => ['required', 'between:3,50'],
-		'postcode' => ['between:6,8'],
 	];
 
 	private $_validationMessages = [
-		'password.required' => 'Please provide a password',
-		'password.between' => 'The password must be at least 5 characters long',
-
 		'email.required' => 'Please provide an email address',
 		'email.between' => 'The email must be at least 5 characters long',
 
+		'password.required' => 'Please provide a password',
+		'password.between' => 'The password must be at least 5 characters long',
+
 		'first_name.between' => 'First name must be at least 2 characters',
 		'surname.between' => 'Surname must be at least 2 characters',
-		'address_line_one.between' => 'Address line 1 must be at least 3 characters',
-		'address_line_two.between' => 'Address line 2 must be at least 3 characters',
-		'city.between' => 'City must be at least 3 characters',
-		'postcode.between' => 'Postcode must be at least 6 characters',
 	];
 
     /**
@@ -61,21 +53,19 @@ class RegisterController extends Controller
     protected $redirectTo = RouteServiceProvider::HOME;
 
 	/**
-	 * @var IUserProfileService
+	 * @var IUserAddressService
 	 */
-    private $_userProfileService;
-
+    public $_userAddressService;
 
     /**
      * Create a new controller instance.
      *
-	 * @param IUserProfileService $userProfileService
      * @return void
      */
-    public function __construct(IUserProfileService $userProfileService)
+    public function __construct(IUserAddressService $userAddressService)
     {
         $this->middleware('guest');
-        $this->_userProfileService = $userProfileService;
+        $this->_userAddressService = $userAddressService;
     }
 
     /**
@@ -123,12 +113,13 @@ class RegisterController extends Controller
 	{
 		$firstName = $request->input('first_name');
 		$surname = $request->input('surname');
-		$addressLineOne = $request->input('address_line_one');
-		$addressLineTwo = $request->input('address_line_two');
-		$city = $request->input('city');
-		$postcode = $request->input('postcode');
 
-		$this->_userProfileService->createProfile($user->id, $firstName, $surname, $addressLineOne, $addressLineTwo, $city, $postcode);
+		$userDetails = [
+			'first_name' => $firstName,
+			'surname' => $surname
+		];
+
+		$this->_userAddressService->createAddress($user->id, $userDetails);
 	}
 }
 

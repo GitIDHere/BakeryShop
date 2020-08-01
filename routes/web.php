@@ -17,7 +17,7 @@ Route::get('/', 'HomeController@showHomepage');
 Route::get('/home', 'HomeController@showHomepage')->name('home');
 
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login.form');
-Route::post('/login', 'Auth\LoginController@loginUser')->name('login.request');
+Route::post('/login', 'Auth\LoginController@login')->name('login.request');
 
 Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('register.form');
 Route::post('/register', 'Auth\RegisterController@register')->name('register.request');

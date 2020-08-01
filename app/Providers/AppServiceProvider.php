@@ -3,13 +3,13 @@
 namespace App\Providers;
 
 use App\Http\Helpers\ErrorLogger;
-use App\Repositories\Interfaces\IUserProfileRepository;
+use App\Repositories\Interfaces\IUserAddressRepository;
 use App\Repositories\Interfaces\IUserRepository;
-use App\Repositories\UserProfileRepository;
+use App\Repositories\UserAddressRepository;
 use App\Repositories\UserRepository;
-use App\Services\Interfaces\IUserProfileService;
+use App\Services\Interfaces\IUserAddressService;
 use App\Services\Interfaces\IUserService;
-use App\Services\UserProfileService;
+use App\Services\UserAddressService;
 use App\Services\UserService;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
@@ -22,10 +22,10 @@ class AppServiceProvider extends ServiceProvider
 	public $bindings = [
 
 		IUserService::class => UserService::class,
-		IUserProfileService::class => UserProfileService::class,
-		IUserRepository::class => UserRepository::class,
-		IUserProfileRepository::class => UserProfileRepository::class,
+		IUserAddressService::class => UserAddressService::class,
 
+		IUserRepository::class => UserRepository::class,
+		IUserAddressRepository::class => UserAddressRepository::class,
 		LoggerInterface::class => ErrorLogger::class,
 	];
 

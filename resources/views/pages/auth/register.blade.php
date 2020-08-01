@@ -19,32 +19,6 @@
 
                     <div class="col-lg-6 col-md-6">
 
-                        @error('email')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                        <label for="email">Email</label>
-                        <input type="text" name="email"
-                               class="@error('email') is-invalid @enderror"
-                               value="{{old('email')}}">
-
-                        @error('password')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                        <label for="password">Password</label>
-                        <input type="password" name="password"
-                               class="@error('password') is-invalid @enderror"
-                               value="">
-
-                        <label for="password_confirmation">Confirm password</label>
-                        <input type="password" name="password_confirmation">
-                    </div>
-
-                    <div class="col-lg-6 col-md-6">
-
                         <div class="row">
                             @error('first_name')
                             <span class="invalid-feedback" role="alert">
@@ -71,47 +45,31 @@
                             </div>
                         </div>
 
-                        @error('address_line_one')
+                        @error('email')
                         <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                            <strong>{{ $message }}</strong>
+                        </span>
                         @enderror
-                        <label for="address_line_one">Address line 1</label>
-                        <input type="text" name="address_line_one"
-                               class="@error('address_line_one') is-invalid @enderror"
-                               value="{{old('address_line_one')}}">
+                        <label for="email">Email</label>
+                        <input type="text" name="email"
+                               class="@error('email') is-invalid @enderror"
+                               value="{{old('email')}}">
 
-                        @error('address_line_two')
+                        @error('password')
                         <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                            <strong>{{ $message }}</strong>
+                        </span>
                         @enderror
-                        <label for="address_line_two">Address line 2</label>
-                        <input type="text" name="address_line_two"
-                               class="@error('address_line_two') is-invalid @enderror"
-                               value="{{old('address_line_two')}}">
+                        <label for="password">Password</label>
+                        <input type="password" name="password"
+                               class="@error('password') is-invalid @enderror"
+                               value="">
 
-                        @error('city')
-                        <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                        <label for="city">City</label>
-                        <input type="text" name="city"
-                               class="@error('city') is-invalid @enderror"
-                               value="{{old('city')}}">
-
-                        @error('postcode')
-                        <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                        <label for="postcode">Postcode</label>
-                        <input type="text" name="postcode"
-                               class="@error('postcode') is-invalid @enderror"
-                               value="{{old('postcode')}}">
+                        <label for="password_confirmation">Confirm password</label>
+                        <input type="password" name="password_confirmation">
 
                         <button type="submit" class="site-btn">Register</button>
+
                     </div>
 
                 </form>

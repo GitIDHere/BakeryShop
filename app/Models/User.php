@@ -38,13 +38,13 @@ class User extends Authenticatable
 
 
 	/**
-	 * User has one UserProfile
+	 * User has one UserAddress
 	 *
 	 * @return \Illuminate\Database\Eloquent\Relations\HasOne
 	 */
-    public function userProfile()
+    public function userAddress()
 	{
-		return $this->hasOne('App\Models\UserProfile');
+		return $this->hasOne('App\Models\UserAddress');
 	}
 
 }

@@ -2,9 +2,9 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class UserProfile extends Model
+class UserAddress extends Model
 {
-	protected $table = 'user_profiles';
+	protected $table = 'user_addresses';
 
 	protected $fillable = [
 		'first_name',
@@ -26,7 +26,7 @@ class UserProfile extends Model
 
 
 	/**
-	 * UserProfile belongs to one User
+	 * UserAddress belongs to one User
 	 *
 	 * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
 	 */
