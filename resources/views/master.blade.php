@@ -17,11 +17,11 @@
 </head>
 <body>
 
-    @include('headers.header_nav')
+    @include('partials.headers._header_nav')
 
     @yield('content')
 
-    @include('footers.footer')
+    @include('partials.footers._footer')
 
     <!-- Search Begin -->
     <div class="search-model">

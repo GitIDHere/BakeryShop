@@ -3,7 +3,7 @@
     <div class="loader"></div>
 </div>
 
-@yield('mobile_nav')
+@include('partials.headers._mobile_nav')
 
 <!-- Header Section Begin -->
 <header class="header">
@@ -12,7 +12,7 @@
 
             <div class="col-xl-3 col-lg-2">
                 <div class="header__logo">
-                    <a href="/"><img src="img/logo.png" alt=""></a>
+                    <a href=" {{ route('home') }}"><img src="img/logo.png" alt=""></a>
                 </div>
             </div>
 
@@ -31,8 +31,8 @@
                         @if (\Illuminate\Support\Facades\Auth::check())
                             <a href="{{\Illuminate\Support\Facades\Auth::logout()}}">Logout</a>
                         @else
-                            <a href="{{route('show_login_form')}}">Login</a>
-                            <a href="{{route('show_register_form')}}">Register</a>
+                            <a href="{{route('login.form')}}">Login</a>
+                            <a href="{{route('register.form')}}">Register</a>
                         @endif
                     </div>
                     <x-nav-basket-widget/>

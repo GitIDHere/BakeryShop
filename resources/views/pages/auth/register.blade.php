@@ -14,7 +14,7 @@
             <div class="contact__form">
                 <h5>Register</h5>
 
-                <form action="{{route('register_user')}}" method="POST" class="row">
+                <form action="{{route('register.request')}}" method="POST" class="row">
                     @csrf
 
                     <div class="col-lg-6 col-md-6">
