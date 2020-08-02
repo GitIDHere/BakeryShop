@@ -1,6 +1,6 @@
 <?php namespace App\Repositories;
 
-use App\Models\UserAddress;
+use App\Models\Users\UserAddress;
 
 class UserAddressRepository extends BaseRepository implements Interfaces\IUserAddressRepository
 {

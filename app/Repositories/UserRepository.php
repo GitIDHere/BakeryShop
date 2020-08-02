@@ -1,6 +1,6 @@
 <?php namespace App\Repositories;
 
-use App\Models\User;
+use App\Models\Users\User;
 
 class UserRepository extends BaseRepository implements Interfaces\IUserRepository
 {

@@ -11,7 +11,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(USAStatesSeeder::class);
-        $this->call(CountrySeeder::class);
+        //$this->call(USAStatesSeeder::class);
+        //$this->call(CountrySeeder::class);
+
+        $this->call(ProductTypeSeeder::class);
     }
 }

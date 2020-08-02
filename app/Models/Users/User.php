@@ -1,4 +1,4 @@
-<?php namespace App\Models;
+<?php namespace App\Models\Users;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -44,7 +44,7 @@ class User extends Authenticatable
 	 */
     public function userAddress()
 	{
-		return $this->hasOne('App\Models\UserAddress');
+		return $this->hasOne('App\Models\Users\UserAddress');
 	}
 
 }

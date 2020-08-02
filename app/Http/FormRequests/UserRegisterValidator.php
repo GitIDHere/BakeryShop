@@ -34,7 +34,7 @@ class UserRegisterValidator extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|email|between:5,250|unique:App\Models\User,email',
+            'email' => 'required|email|between:5,250|unique:App\Models\Users\User,email',
 			'password' => 'required|string|between:5,50',
 
 			'first_name' => 'required|alpha|between:2,30',
