@@ -1,0 +1,109 @@
+- General product so that you can add more product types later
+
+
+--------------------------
+ProductTypes
+- ID
+- name
+- date_time
+
+--------------------------
+
+Products
+- ID
+- product_type_id
+- seller_id
+- name
+- type (type of bread)
+- origin (country)
+- Days till expire
+- width
+- height
+- weight
+- img
+- description
+- created
+- amended/updated
+- Quantity
+- units
+
+ProductDiets
+- ID
+- product_id
+- is_vegitarian 0 - 1
+- is_gluten_free 0 - 1
+- is_vegan 0 - 1
+- amended/updated
+
+
+ProductNutritions
+- ID
+- product_id
+- calories
+- cabs
+- sugar
+- salt
+- protien
+- fat
+- amended/updated
+
+
+ProductIngredients
+- ID
+- product_id
+- name
+- amended/updated
+
+
+ProductRatings
+- ID
+- product_id
+- rating_avg
+- rating_count
+
+
+UserRatings (allow to update the rating)
+- ID
+- product_id
+- rating (0 - 5)
+- date_time_created
+- amended/updated
+
+
+UserReviews (Only if the user has purchased the product)
+- ID
+- product_id
+- review
+- date_time_created
+- amended/updated
+
+
+--------------------------
+
+
+Bread
+
+- Ingredients
+- Name
+- Quantity
+- Expiry time
+	- The further the destination is the less date of expiry
+- Weight
+- width
+- height
+- Calories
+- Image
+- Gluten free
+- Vegitarian
+- Vegan
+- Salt
+- Sugar
+- Carbs
+- Fat
+- Type of bread
+- Description
+- Rating
+- Origin
+- 
+
+- user reviews

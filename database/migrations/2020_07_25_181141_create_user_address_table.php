@@ -22,13 +22,16 @@ class CreateUserAddressTable extends Migration
             $table->string('address_line_two')->nullable();
             $table->string('city')->nullable();
             $table->string('postcode')->nullable();
+			$table->timestamps();
+
 
             $table->foreign('user_id')
 				->references('id')
 				->on('users')
 				->onDelete('cascade')
 			;
-            $table->timestamps();
+
+
         });
     }
 
