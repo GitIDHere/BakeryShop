@@ -3,7 +3,7 @@
 use App\Repositories\Interfaces\IUserAddressRepository;
 use App\Services\Interfaces\IUserAddressService;
 
-class UserAddressService extends BaseService implements IUserAddressService
+class UserAddressService extends ModelService implements IUserAddressService
 {
 	private $_userAddressRepo;
 

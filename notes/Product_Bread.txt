@@ -107,3 +107,11 @@ Bread
 - 
 
 - user reviews
+
+
+- Create a controller
+- Check if all the required fields are present
+- Create a form for the Product
+- See if the product saves
+	- Create the diet, ingredients, nutritions services and repositories
+- Create new objects in the controller and after saving the Product then save the related models.

@@ -4,8 +4,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProductType extends Model
 {
-	protected $table = 'product_types';
+	protected $table = 'product_type';
 
+	/**
+	 * @var array
+	 */
+	protected $fillable = [
+		'name'
+	];
 
 	/**
 	 * ProductType has many Product

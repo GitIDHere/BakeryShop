@@ -1,11 +1,23 @@
 <?php namespace App\Models\Products;
 
+use App\Models\Products\Interfaces\IProductModel;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Product extends Model implements IProductModel
 {
-	protected $table = 'products';
+	protected $table = 'product';
 
+	protected $fillable = [
+		'name',
+		'days_till_expire',
+		'width',
+		'height',
+		'weight',
+		'img',
+		'description',
+		'quantity',
+		'unit',
+	];
 
 	/**
 	 * A Product has one ProductType

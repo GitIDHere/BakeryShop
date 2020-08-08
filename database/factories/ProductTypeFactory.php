@@ -6,6 +6,7 @@ use Faker\Generator as Faker;
 
 $factory->define(\App\Models\Products\ProductType::class, function (Faker $faker) {
     return [
-        'name' => 'bread'
+        'name' => 'bread',
+		'is_eaten' => 1
     ];
 });

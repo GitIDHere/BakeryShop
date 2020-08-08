@@ -3,7 +3,7 @@
 use App\Repositories\Interfaces\IUserRepository;
 use Illuminate\Support\Facades\Hash;
 
-class UserService extends BaseService implements Interfaces\IUserService
+class UserService extends ModelService implements Interfaces\IUserService
 {
 
 	private $_userRepo;

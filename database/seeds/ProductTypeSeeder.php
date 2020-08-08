@@ -17,6 +17,7 @@ class ProductTypeSeeder extends Seeder
 
 		factory(ProductType::class, 1)->create()->each(function ($productType) use ($faker)
 		{
+			// Make 50 products
 			$products = factory(Product::class, 50)->make()->toArray();
 
 			$productType->products()->createMany($products)->each(function($product) use ($faker)

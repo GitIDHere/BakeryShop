@@ -2,7 +2,7 @@
 
 use App\Repositories\Interfaces\IModelRepository;
 
-class BaseService implements Interfaces\IModelService
+class ModelService implements Interfaces\IModelService
 {
 	protected  $_repo;
 

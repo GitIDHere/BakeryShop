@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductDietsTable extends Migration
+class CreateProductDietTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateProductDietsTable extends Migration
      */
     public function up()
     {
-        Schema::create('Product_Diets', function (Blueprint $table) {
+        Schema::create('Product_Diet', function (Blueprint $table) {
             $table->id();
             $table->foreignId('product_id');
             $table->boolean('is_vegetarian');
@@ -23,7 +23,7 @@ class CreateProductDietsTable extends Migration
 
 			$table->foreign('product_id')
 				->references('id')
-				->on('Products')
+				->on('Product')
 				->cascadeOnDelete()
 			;
         });
@@ -36,6 +36,6 @@ class CreateProductDietsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Product_Diets');
+        Schema::dropIfExists('Product_Diet');
     }
 }

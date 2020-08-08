@@ -6,6 +6,12 @@ class ProductIngredient extends Model
 {
 	protected $table = 'product_ingredients';
 
+	/**
+	 * @var array
+	 */
+	protected $fillable = [
+		'name'
+	];
 
 	/**
 	 * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

@@ -2,10 +2,9 @@
 
 interface IModelRepository
 {
-
 	public function exists($params);
 
-	public function create(array $values);
+	public function create($props);
 
 	public function update(int $id, array $values);
 

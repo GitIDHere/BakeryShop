@@ -2,7 +2,7 @@
 
 use App\Models\Users\UserAddress;
 
-class UserAddressRepository extends BaseRepository implements Interfaces\IUserAddressRepository
+class UserAddressRepository extends ModelRepository implements Interfaces\IUserAddressRepository
 {
 
 

@@ -3,7 +3,7 @@
 use App\Repositories\Interfaces\IModelRepository;
 use Illuminate\Database\Eloquent\Model;
 
-class BaseRepository implements IModelRepository
+class ModelRepository implements IModelRepository
 {
 	protected $_model;
 
@@ -31,12 +31,12 @@ class BaseRepository implements IModelRepository
 
 
 	/**
-	 * @param array $values
+	 * @param array $props
 	 * @return Model
 	 */
-	public function create(array $values)
+	public function create($props)
 	{
-		$newRecord = $this->_model::create($values);
+		$newRecord = $this->_model::create($props);
 		return $newRecord;
 	}
 

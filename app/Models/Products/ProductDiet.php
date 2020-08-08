@@ -4,7 +4,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProductDiet extends Model
 {
-    protected $table = 'product_diets';
+    protected $table = 'product_diet';
+
+	/**
+	 * @var array
+	 */
+    protected $fillable = [
+		'is_vegetarian',
+		'is_gluten_free',
+		'is_vegan',
+	];
 
 
 	/**

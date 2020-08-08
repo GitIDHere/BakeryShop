@@ -4,8 +4,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProductRating extends Model
 {
-	protected $table = 'product_ratings';
+	protected $table = 'product_rating';
 
+	/**
+	 * @var array
+	 */
+	protected $fillable = [
+		'avg_rating',
+		'ratings_count'
+	];
 
 	/**
 	 * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

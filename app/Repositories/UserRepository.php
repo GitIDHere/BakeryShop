@@ -2,7 +2,7 @@
 
 use App\Models\Users\User;
 
-class UserRepository extends BaseRepository implements Interfaces\IUserRepository
+class UserRepository extends ModelRepository implements Interfaces\IUserRepository
 {
 
 	public function __construct(User $user)

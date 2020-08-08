@@ -21,7 +21,7 @@ class CreateProductIngredientsTable extends Migration
 
 			$table->foreign('product_id')
 				->references('id')
-				->on('Products')
+				->on('Product')
 				->cascadeOnDelete()
 			;
         });
