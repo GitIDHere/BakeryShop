@@ -17,6 +17,10 @@ class ProductTypeSeeder extends Seeder
 
 		factory(ProductType::class, 1)->create()->each(function ($productType) use ($faker)
 		{
+			// ProductTypeImage
+			$productTypeImage = factory(\App\Models\Products\Images\ProductTypeImage::class)->make();
+			$productType->productTypeImage()->save($productTypeImage);
+
 			// Make 50 products
 			$products = factory(Product::class, 50)->make()->toArray();
 
