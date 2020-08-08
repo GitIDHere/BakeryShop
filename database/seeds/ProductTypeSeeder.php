@@ -22,14 +22,14 @@ class ProductTypeSeeder extends Seeder
 
 			$productType->products()->createMany($products)->each(function($product) use ($faker)
 			{
-				$productDiet = factory(\App\Models\Products\ProductDiet::class)->make();
-				$product->productDiet()->save($productDiet);
+				$dietary = factory(\App\Models\Products\Dietary::class)->make();
+				$product->dietary()->save($dietary);
 
-				$productNutrition = factory(\App\Models\Products\ProductNutrition::class)->make();
-				$product->productNutrition()->save($productNutrition);
+				$nutrition = factory(\App\Models\Products\Nutrition::class)->make();
+				$product->nutrition()->save($nutrition);
 
-				$productIngredients = factory(\App\Models\Products\ProductIngredient::class, $faker->numberBetween(5, 10))->make()->toArray();
-				$product->productIngredients()->createMany($productIngredients);
+				$ingredients = factory(\App\Models\Products\Ingredient::class, $faker->numberBetween(5, 10))->make()->toArray();
+				$product->ingredients()->createMany($ingredients);
 
 				$productRating = factory(\App\Models\Products\ProductRating::class)->make();
 				$product->productRating()->save($productRating);

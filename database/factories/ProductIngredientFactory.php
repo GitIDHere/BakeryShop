@@ -5,7 +5,7 @@
 use \App\Models\Products;
 use Faker\Generator as Faker;
 
-$factory->define(\App\Models\Products\ProductIngredient::class, function (Faker $faker) {
+$factory->define(\App\Models\Products\Ingredient::class, function (Faker $faker) {
     return [
         'name' => $faker->word(),
     ];

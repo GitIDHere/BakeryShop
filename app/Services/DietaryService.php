@@ -1,14 +1,14 @@
 <?php namespace App\Services;
 
 use App\Models\Products\Interfaces\IProductModel;
-use App\Repositories\Interfaces\IDietRepository;
-use App\Services\Interfaces\IDietService;
+use App\Repositories\Interfaces\IDietaryRepository;
+use App\Services\Interfaces\IDietaryService;
 
-class DietService extends ModelService implements IDietService
+class DietaryService extends ModelService implements IDietaryService
 {
 	private $_dietRepo;
 
-	public function __construct(IDietRepository $repository)
+	public function __construct(IDietaryRepository $repository)
 	{
 		parent::__construct($repository);
 

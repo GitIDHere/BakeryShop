@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductDietTable extends Migration
+class CreateProductDietaryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateProductDietTable extends Migration
      */
     public function up()
     {
-        Schema::create('Product_Diet', function (Blueprint $table) {
+        Schema::create('Product_Dietary', function (Blueprint $table) {
             $table->id();
             $table->foreignId('product_id');
             $table->boolean('is_vegetarian');
@@ -36,6 +36,6 @@ class CreateProductDietTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Product_Diet');
+        Schema::dropIfExists('Product_Dietary');
     }
 }

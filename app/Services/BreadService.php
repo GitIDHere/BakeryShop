@@ -1,12 +1,8 @@
 <?php namespace App\Services;
 
 use App\Repositories\Interfaces\IBreadRepository;
-use App\Repositories\Interfaces\IDietRepository;
-use App\Repositories\Interfaces\IIngredientRepository;
-use App\Repositories\Interfaces\INutritionRepository;
-use App\Repositories\Interfaces\IRatingRepository;
 use App\Services\Interfaces\IBreadService;
-use App\Services\Interfaces\IDietService;
+use App\Services\Interfaces\IDietaryService;
 use App\Services\Interfaces\IIngredientService;
 use App\Services\Interfaces\INutritionService;
 use App\Services\Interfaces\IRatingService;
@@ -14,7 +10,7 @@ use App\Services\Interfaces\IRatingService;
 class BreadService extends ProductService implements IBreadService
 {
 	/**
-	 * @var IDietService
+	 * @var IDietaryService
 	 */
 	private $_dietService;
 	/**
@@ -35,7 +31,7 @@ class BreadService extends ProductService implements IBreadService
 	private $_breadRepo;
 
 
-	public function __construct(IBreadRepository $breadRepository, IDietService $dietService,
+	public function __construct(IBreadRepository $breadRepository, IDietaryService $dietService,
 		INutritionService $nutritionService, IIngredientService $ingredientService, IRatingService $ratingService)
 	{
 		parent::__construct($breadRepository);

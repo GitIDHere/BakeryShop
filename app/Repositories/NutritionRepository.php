@@ -1,17 +1,17 @@
 <?php namespace App\Repositories;
 
 use App\Models\Products\Interfaces\IProductModel;
-use App\Models\Products\ProductNutrition;
+use App\Models\Products\Nutrition;
 use App\Repositories\Interfaces\INutritionRepository;
 
 class NutritionRepository extends ModelRepository implements INutritionRepository
 {
 	/**
-	 * @var ProductNutrition
+	 * @var Nutrition
 	 */
 	private $_nutrition;
 
-	public function __construct(ProductNutrition $nutrition)
+	public function __construct(Nutrition $nutrition)
 	{
 		parent::__construct($nutrition);
 
@@ -21,11 +21,11 @@ class NutritionRepository extends ModelRepository implements INutritionRepositor
 	/**
 	 * @param IProductModel $product
 	 * @param array $properties
-	 * @return ProductNutrition
+	 * @return Nutrition
 	 */
 	public function make(IProductModel $product, array $properties)
 	{
-		$nutrition = new ProductNutrition($properties);
+		$nutrition = new Nutrition($properties);
 		$nutrition->product()->associate($product);
 		$nutrition->save();
 		return $nutrition;

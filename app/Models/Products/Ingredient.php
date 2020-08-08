@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class ProductIngredient extends Model
+class Ingredient extends Model
 {
 	protected $table = 'product_ingredients';
 

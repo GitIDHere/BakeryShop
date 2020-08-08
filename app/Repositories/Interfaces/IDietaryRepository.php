@@ -1,9 +1,8 @@
-<?php namespace App\Services\Interfaces;
+<?php namespace App\Repositories\Interfaces;
 
 use App\Models\Products\Interfaces\IProductModel;
 
-interface IDietService extends IModelService
+interface IDietaryRepository extends IModelRepository
 {
 	public function make(IProductModel $product, array $properties);
-
 }

@@ -1,17 +1,17 @@
 <?php namespace App\Repositories;
 
+use App\Models\Products\Dietary;
 use App\Models\Products\Interfaces\IProductModel;
-use App\Models\Products\ProductDiet;
-use App\Repositories\Interfaces\IDietRepository;
+use App\Repositories\Interfaces\IDietaryRepository;
 
-class DietRepository extends ModelRepository implements IDietRepository
+class DietaryRepository extends ModelRepository implements IDietaryRepository
 {
 	/**
-	 * @var ProductDiet
+	 * @var Dietary
 	 */
 	private $_diet;
 
-	public function __construct(ProductDiet $diet)
+	public function __construct(Dietary $diet)
 	{
 		parent::__construct($diet);
 
@@ -21,11 +21,11 @@ class DietRepository extends ModelRepository implements IDietRepository
 	/**
 	 * @param IProductModel $product
 	 * @param array $properties
-	 * @return ProductDiet
+	 * @return Dietary
 	 */
 	public function make(IProductModel $product, $properties)
 	{
-		$diet = new ProductDiet($properties);
+		$diet = new Dietary($properties);
 		$diet->product()->associate($product);
 		$diet->save();
 		return $diet;

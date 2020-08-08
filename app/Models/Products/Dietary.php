@@ -2,21 +2,19 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class ProductNutrition extends Model
+class Dietary extends Model
 {
-	protected $table = 'product_nutrition';
+    protected $table = 'product_dietary';
 
 	/**
 	 * @var array
 	 */
-	protected $fillable = [
-		'calories',
-		'carbs',
-		'sugar',
-		'salt',
-		'protein',
-		'fat',
+    protected $fillable = [
+		'is_vegetarian',
+		'is_gluten_free',
+		'is_vegan',
 	];
+
 
 	/**
 	 * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

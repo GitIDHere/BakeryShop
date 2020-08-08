@@ -30,33 +30,33 @@ class Product extends Model implements IProductModel
 	}
 
 	/**
-	 * A Product has one ProductDiet
+	 * A Product has one Dietary
 	 *
 	 * @return \Illuminate\Database\Eloquent\Relations\HasOne
 	 */
-	public function productDiet()
+	public function dietary()
 	{
-		return $this->hasOne('App\Models\Products\ProductDiet');
+		return $this->hasOne('App\Models\Products\Dietary');
 	}
 
 	/**
-	 * A Product has one ProductNutrition
+	 * A Product has one Nutrition
 	 *
 	 * @return \Illuminate\Database\Eloquent\Relations\HasOne
 	 */
-	public function productNutrition()
+	public function nutrition()
 	{
-		return $this->hasOne('App\Models\Products\ProductNutrition');
+		return $this->hasOne('App\Models\Products\Nutrition');
 	}
 
 	/**
-	 * A Product has many ProductIngredient
+	 * A Product has many Ingredient
 	 *
 	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
 	 */
-	public function productIngredients()
+	public function ingredients()
 	{
-		return $this->hasMany('App\Models\Products\ProductIngredient');
+		return $this->hasMany('App\Models\Products\Ingredient');
 	}
 
 	/**

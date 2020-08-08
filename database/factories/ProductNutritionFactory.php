@@ -5,7 +5,7 @@
 use \App\Models\Products;
 use Faker\Generator as Faker;
 
-$factory->define(Products\ProductNutrition::class, function (Faker $faker) {
+$factory->define(Products\Nutrition::class, function (Faker $faker) {
     return [
         'calories' => $faker->numberBetween(50, 600),
         'carbs' => $faker->numberBetween(50, 200),
