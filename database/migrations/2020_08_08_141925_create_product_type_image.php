@@ -17,6 +17,8 @@ class CreateProductTypeImage extends Migration
             $table->id();
             $table->foreignId('product_type_id');
             $table->string('tile_image');
+            $table->boolean('is_active');
+            $table->boolean('is_lead')->comment("If set to 1 then the image is shown on the big tile");
             $table->timestamps();
 
 			$table->foreign('product_type_id')

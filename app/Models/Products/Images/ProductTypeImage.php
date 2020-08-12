@@ -7,7 +7,9 @@ class ProductTypeImage extends Model
 	protected $table = 'product_type_image';
 
 	protected $fillable = [
-		'tile_image'
+		'tile_image',
+		'is_active',
+		'is_lead',
 	];
 
 

@@ -24,11 +24,11 @@ class ProductType extends Model
 	}
 
 	/**
-	 * @return \Illuminate\Database\Eloquent\Relations\HasOne
+	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
 	 */
 	public function productTypeImage()
 	{
-		return $this->hasOne('App\Models\Products\Images\ProductTypeImage');
+		return $this->hasMany('App\Models\Products\Images\ProductTypeImage');
 	}
 
 }

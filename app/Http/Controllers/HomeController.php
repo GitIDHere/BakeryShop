@@ -23,6 +23,6 @@ class HomeController extends Controller
      */
     public function showHomepage()
     {
-        return view('master');
+        return view('pages.home');
     }
 }

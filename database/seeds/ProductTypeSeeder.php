@@ -15,14 +15,14 @@ class ProductTypeSeeder extends Seeder
     {
     	$faker = Faker\Factory::create();
 
-		factory(ProductType::class, 1)->create()->each(function ($productType) use ($faker)
+		factory(ProductType::class, 10)->create()->each(function ($productType) use ($faker)
 		{
 			// ProductTypeImage
 			$productTypeImage = factory(\App\Models\Products\Images\ProductTypeImage::class)->make();
 			$productType->productTypeImage()->save($productTypeImage);
 
-			// Make 50 products
-			$products = factory(Product::class, 50)->make()->toArray();
+			// Make 5 products
+			$products = factory(Product::class, 5)->make()->toArray();
 
 			$productType->products()->createMany($products)->each(function($product) use ($faker)
 			{

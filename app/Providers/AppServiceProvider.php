@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Http\Helpers\ErrorLogger;
+use App\Models\Products\Images\ProductTypeImage;
 use App\Repositories\BreadRepository;
 use App\Repositories\DietaryRepository;
 use App\Repositories\IngredientRepository;
@@ -12,6 +13,7 @@ use App\Repositories\Interfaces\IIngredientRepository;
 use App\Repositories\Interfaces\IModelRepository;
 use App\Repositories\Interfaces\INutritionRepository;
 use App\Repositories\Interfaces\IProductRepository;
+use App\Repositories\Interfaces\IProductTypeImageRepository;
 use App\Repositories\Interfaces\IProductTypeRepository;
 use App\Repositories\Interfaces\IRatingRepository;
 use App\Repositories\Interfaces\IUserAddressRepository;
@@ -19,6 +21,7 @@ use App\Repositories\Interfaces\IUserRepository;
 use App\Repositories\ModelRepository;
 use App\Repositories\NutritionRepository;
 use App\Repositories\ProductRepository;
+use App\Repositories\ProductTypeImageRepository;
 use App\Repositories\ProductTypeRepository;
 use App\Repositories\RatingRepository;
 use App\Repositories\UserAddressRepository;
@@ -32,6 +35,7 @@ use App\Services\Interfaces\IIngredientService;
 use App\Services\Interfaces\IModelService;
 use App\Services\Interfaces\INutritionService;
 use App\Services\Interfaces\IProductService;
+use App\Services\Interfaces\IProductTypeImageService;
 use App\Services\Interfaces\IProductTypeService;
 use App\Services\Interfaces\IRatingService;
 use App\Services\Interfaces\IUserAddressService;
@@ -39,6 +43,7 @@ use App\Services\Interfaces\IUserService;
 use App\Services\ModelService;
 use App\Services\NutritionService;
 use App\Services\ProductService;
+use App\Services\ProductTypeImageService;
 use App\Services\ProductTypeService;
 use App\Services\RatingService;
 use App\Services\UserAddressService;
@@ -61,6 +66,7 @@ class AppServiceProvider extends ServiceProvider
 		IProductService::class => ProductService::class,
 		IProductTypeService::class => ProductTypeService::class,
 		IRatingService::class => RatingService::class,
+		IProductTypeImageService::class => ProductTypeImageService::class,
 
 		IUserRepository::class => UserRepository::class,
 		IUserAddressRepository::class => UserAddressRepository::class,
@@ -72,6 +78,7 @@ class AppServiceProvider extends ServiceProvider
 		IRatingRepository::class => RatingRepository::class,
 		IProductRepository::class => ProductRepository::class,
 		IProductTypeRepository::class => ProductTypeRepository::class,
+		IProductTypeImageRepository::class => ProductTypeImageRepository::class,
 
 		LoggerInterface::class => ErrorLogger::class,
 	];
