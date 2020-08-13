@@ -3,7 +3,7 @@
 use App\Services\Interfaces\IProductTypeImageService;
 use Illuminate\View\View;
 
-class HomeCategorySectionComposer
+class CategorySectionViewComposer
 {
 	/**
 	 * @var IProductTypeImageService

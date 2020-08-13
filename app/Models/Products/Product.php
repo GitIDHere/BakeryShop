@@ -88,5 +88,19 @@ class Product extends Model implements IProductModel
 		return $this->hasMany('App\Models\Products\UserReview');
 	}
 
+	/**
+	 * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+	 */
+	public function categories()
+	{
+		return $this->belongsToMany('App\Models\Products\Categories', 'product_categories', 'product_id', 'category_id');
+	}
 
+	/**
+	 * @return \Illuminate\Database\Eloquent\Relations\HasOne
+	 */
+	public function productPrice()
+	{
+		return $this->hasOne('App\Models\Products\ProductPrice');
+	}
 }

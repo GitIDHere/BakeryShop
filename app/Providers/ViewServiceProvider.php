@@ -22,8 +22,7 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer(
-            'pages.home', 'App\Http\View\Composers\HomeCategorySectionComposer'
-        );
+        View::composer('partials.home._category_selection', 'App\Http\View\Composers\CategorySectionViewComposer');
+        View::composer('partials.home._fresh_new_products', 'App\Http\View\Composers\PromotedProductsViewComposer');
     }
 }

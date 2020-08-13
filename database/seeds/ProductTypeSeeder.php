@@ -26,6 +26,14 @@ class ProductTypeSeeder extends Seeder
 
 			$productType->products()->createMany($products)->each(function($product) use ($faker)
 			{
+				//Categories
+				$categories = factory(\App\Models\Products\Categories::class, $faker->numberBetween(2, 3))->make()->toArray();
+				$product->categories()->createMany($categories);
+
+				// ProductPrice
+				$productPrice = factory(\App\Models\Products\ProductPrice::class)->make();
+				$product->productPrice()->save($productPrice);
+
 				$dietary = factory(\App\Models\Products\Dietary::class)->make();
 				$product->dietary()->save($dietary);
 

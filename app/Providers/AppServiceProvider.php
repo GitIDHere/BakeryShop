@@ -3,51 +3,10 @@
 namespace App\Providers;
 
 use App\Http\Helpers\ErrorLogger;
-use App\Models\Products\Images\ProductTypeImage;
-use App\Repositories\BreadRepository;
-use App\Repositories\DietaryRepository;
-use App\Repositories\IngredientRepository;
-use App\Repositories\Interfaces\IBreadRepository;
-use App\Repositories\Interfaces\IDietaryRepository;
-use App\Repositories\Interfaces\IIngredientRepository;
-use App\Repositories\Interfaces\IModelRepository;
-use App\Repositories\Interfaces\INutritionRepository;
-use App\Repositories\Interfaces\IProductRepository;
-use App\Repositories\Interfaces\IProductTypeImageRepository;
-use App\Repositories\Interfaces\IProductTypeRepository;
-use App\Repositories\Interfaces\IRatingRepository;
-use App\Repositories\Interfaces\IUserAddressRepository;
-use App\Repositories\Interfaces\IUserRepository;
-use App\Repositories\ModelRepository;
-use App\Repositories\NutritionRepository;
-use App\Repositories\ProductRepository;
-use App\Repositories\ProductTypeImageRepository;
-use App\Repositories\ProductTypeRepository;
-use App\Repositories\RatingRepository;
-use App\Repositories\UserAddressRepository;
-use App\Repositories\UserRepository;
-use App\Services\BreadService;
-use App\Services\DietaryService;
-use App\Services\IngredientService;
-use App\Services\Interfaces\IBreadService;
-use App\Services\Interfaces\IDietaryService;
-use App\Services\Interfaces\IIngredientService;
-use App\Services\Interfaces\IModelService;
-use App\Services\Interfaces\INutritionService;
-use App\Services\Interfaces\IProductService;
-use App\Services\Interfaces\IProductTypeImageService;
-use App\Services\Interfaces\IProductTypeService;
-use App\Services\Interfaces\IRatingService;
-use App\Services\Interfaces\IUserAddressService;
-use App\Services\Interfaces\IUserService;
-use App\Services\ModelService;
-use App\Services\NutritionService;
-use App\Services\ProductService;
-use App\Services\ProductTypeImageService;
-use App\Services\ProductTypeService;
-use App\Services\RatingService;
-use App\Services\UserAddressService;
-use App\Services\UserService;
+use App\Repositories;
+use App\Repositories\Interfaces as RepoInterfaces;
+use App\Services;
+use App\Services\Interfaces AS ServiceInterfaces;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use Psr\Log\LoggerInterface;
@@ -55,30 +14,32 @@ use Psr\Log\LoggerInterface;
 class AppServiceProvider extends ServiceProvider
 {
 	public $bindings = [
-		IUserService::class => UserService::class,
-		IUserAddressService::class => UserAddressService::class,
+		ServiceInterfaces\IUserService::class => Services\UserService::class,
+		ServiceInterfaces\IUserAddressService::class => Services\UserAddressService::class,
 
-		IBreadService::class => BreadService::class,
-		IDietaryService::class => DietaryService::class,
-		IIngredientService::class => IngredientService::class,
-		IModelService::class => ModelService::class,
-		INutritionService::class => NutritionService::class,
-		IProductService::class => ProductService::class,
-		IProductTypeService::class => ProductTypeService::class,
-		IRatingService::class => RatingService::class,
-		IProductTypeImageService::class => ProductTypeImageService::class,
+		ServiceInterfaces\IBreadService::class => Services\BreadService::class,
+		ServiceInterfaces\IDietaryService::class => Services\DietaryService::class,
+		ServiceInterfaces\IIngredientService::class => Services\IngredientService::class,
+		ServiceInterfaces\IModelService::class => Services\ModelService::class,
+		ServiceInterfaces\INutritionService::class => Services\NutritionService::class,
+		ServiceInterfaces\IProductService::class => Services\ProductService::class,
+		ServiceInterfaces\IProductTypeService::class => Services\ProductTypeService::class,
+		ServiceInterfaces\IRatingService::class => Services\RatingService::class,
+		ServiceInterfaces\IProductTypeImageService::class => Services\ProductTypeImageService::class,
+		ServiceInterfaces\ICategoriesService::class => Services\CategoryService::class,
 
-		IUserRepository::class => UserRepository::class,
-		IUserAddressRepository::class => UserAddressRepository::class,
-		IModelRepository::class => ModelRepository::class,
-		IBreadRepository::class => BreadRepository::class,
-		IDietaryRepository::class => DietaryRepository::class,
-		IIngredientRepository::class => IngredientRepository::class,
-		INutritionRepository::class => NutritionRepository::class,
-		IRatingRepository::class => RatingRepository::class,
-		IProductRepository::class => ProductRepository::class,
-		IProductTypeRepository::class => ProductTypeRepository::class,
-		IProductTypeImageRepository::class => ProductTypeImageRepository::class,
+		RepoInterfaces\IUserRepository::class => Repositories\UserRepository::class,
+		RepoInterfaces\IUserAddressRepository::class => Repositories\UserAddressRepository::class,
+		RepoInterfaces\IModelRepository::class => Repositories\ModelRepository::class,
+		RepoInterfaces\IBreadRepository::class => Repositories\BreadRepository::class,
+		RepoInterfaces\IDietaryRepository::class => Repositories\DietaryRepository::class,
+		RepoInterfaces\IIngredientRepository::class => Repositories\IngredientRepository::class,
+		RepoInterfaces\INutritionRepository::class => Repositories\NutritionRepository::class,
+		RepoInterfaces\IRatingRepository::class => Repositories\RatingRepository::class,
+		RepoInterfaces\IProductRepository::class => Repositories\ProductRepository::class,
+		RepoInterfaces\IProductTypeRepository::class => Repositories\ProductTypeRepository::class,
+		RepoInterfaces\IProductTypeImageRepository::class => Repositories\ProductTypeImageRepository::class,
+		RepoInterfaces\ICategoryRepository::class => Repositories\CategoryRepository::class,
 
 		LoggerInterface::class => ErrorLogger::class,
 	];

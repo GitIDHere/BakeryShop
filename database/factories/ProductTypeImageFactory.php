@@ -8,6 +8,6 @@ $factory->define(\App\Models\Products\Images\ProductTypeImage::class, function (
     return [
         'tile_image' => $faker->imageUrl(),
         'is_active' => $faker->numberBetween(0, 1),
-        'is_promoted' => $faker->numberBetween(0, 1),
+        'is_lead' => $faker->numberBetween(0, 1),
     ];
 });
