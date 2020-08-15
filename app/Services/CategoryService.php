@@ -2,6 +2,7 @@
 
 use App\Repositories\Interfaces\ICategoryRepository;
 use App\Services\Interfaces\ICategoriesService;
+use Illuminate\Database\Eloquent\Collection;
 
 class CategoryService extends ModelService implements ICategoriesService
 {
@@ -19,10 +20,22 @@ class CategoryService extends ModelService implements ICategoriesService
 
 	/**
 	 * @param int $limit
+	 * @param bool $onlyPromoted
 	 * @return mixed
 	 */
-	public function getPromotedCategories($limit = 3)
+	public function getCategories($limit = 3, $onlyPromoted = null)
 	{
-		return $this->_categoryRepo->getCategories($limit, true);
+		return $this->_categoryRepo->getCategories($limit, $onlyPromoted);
+	}
+
+	/**
+	 * @param Collection $categoryCollection
+	 * @param int $maxItemsPerCategory
+	 * @param bool $onlyActive
+	 * @return mixed
+	 */
+	public function getProducts(Collection $categoryCollection, $maxItemsPerCategory = 6, $onlyActive = null)
+	{
+		return $this->_categoryRepo->getProducts($categoryCollection, $maxItemsPerCategory, $onlyActive);
 	}
 }

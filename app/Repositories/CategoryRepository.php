@@ -2,6 +2,7 @@
 
 use App\Models\Products\Categories;
 use App\Repositories\Interfaces\ICategoryRepository;
+use Illuminate\Database\Eloquent\Collection;
 
 class CategoryRepository extends ModelRepository implements ICategoryRepository
 {
@@ -33,4 +34,27 @@ class CategoryRepository extends ModelRepository implements ICategoryRepository
 
 		return $catResult;
 	}
+
+
+	/**
+	 * For each of the categories, get the products
+	 *
+	 * @param Collection $categoryCollection
+	 * @param int $maxItemsPerCategory
+	 * @param bool $onlyActive
+	 * @return Collection|\Illuminate\Support\Collection
+	 */
+	public function getProducts(Collection $categoryCollection, $maxItemsPerCategory = 6, $onlyActive = null)
+	{
+		$products = $categoryCollection->map(function($category) use ($maxItemsPerCategory, $onlyActive) {
+			$products = $category->products();
+			if ($onlyActive !== null) {
+				$products->where('is_active', $onlyActive);
+			}
+			return $products->limit($maxItemsPerCategory)->get()->all();
+		});
+
+		return $products;
+	}
+
 }

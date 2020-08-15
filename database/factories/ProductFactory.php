@@ -16,5 +16,6 @@ $factory->define(Products\Product::class, function (Faker $faker) {
         'description' => $faker->text(),
         'quantity' => $faker->numberBetween(0, 100),
         'unit' => 'loaf',
+        'is_active' => $faker->numberBetween(0, 1),
     ];
 });

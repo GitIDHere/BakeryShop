@@ -26,6 +26,7 @@ class CreateProductTable extends Migration
 			$table->mediumText('description');
 			$table->integer('quantity');
 			$table->string('unit')->comment('What is the unit of measurement of this product?');
+			$table->boolean('is_active');
             $table->timestamps();
 
             $table->foreign('product_type_id')
