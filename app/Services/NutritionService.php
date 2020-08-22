@@ -15,14 +15,4 @@ class NutritionService extends ModelService implements INutritionService
 
 		$this->_nutritionRepo = $repository;
 	}
-
-	/**
-	 * @param IProductModel $product
-	 * @param array $properties
-	 * @return mixed
-	 */
-	public function make(IProductModel $product, array $properties)
-	{
-		return $this->_nutritionRepo->make($product, $properties);
-	}
 }

@@ -14,14 +14,4 @@ class DietaryService extends ModelService implements IDietaryService
 
 		$this->_dietRepo = $repository;
 	}
-
-	/**
-	 * @param IProductModel $product
-	 * @param array $properties
-	 * @return mixed
-	 */
-	public function make(IProductModel $product, array $properties)
-	{
-		return $this->_dietRepo->make($product, $properties);
-	}
 }

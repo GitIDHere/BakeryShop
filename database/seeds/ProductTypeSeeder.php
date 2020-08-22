@@ -18,14 +18,26 @@ class ProductTypeSeeder extends Seeder
 		factory(ProductType::class, 10)->create()->each(function ($productType) use ($faker)
 		{
 			// ProductTypeImage
-			$productTypeImage = factory(\App\Models\Products\Images\ProductTypeImage::class)->make();
-			$productType->productTypeImage()->save($productTypeImage);
+			$image = factory(\App\Models\Products\Images\Image::class)->make();
+			$productType->image()->save($image);
+
+			//Promoted product type
+			$showOnHeaderTilePromoted = factory(\App\Models\Products\PromotedProductType::class)->make();
+			$productType->promotedProductType()->save($showOnHeaderTilePromoted);
 
 			// Make 5 products
 			$products = factory(Product::class, 5)->make()->toArray();
 
 			$productType->products()->createMany($products)->each(function($product) use ($faker)
 			{
+				//Image
+				$image = factory(\App\Models\Products\Images\Image::class)->make();
+				$product->image()->save($image);
+
+				// Promoted product
+				$featuredProduct = factory(\App\Models\Products\PromotedProduct::class)->make();
+				$product->promotedProduct()->save($featuredProduct);
+
 				//Categories
 				$categories = factory(\App\Models\Products\Categories::class, $faker->numberBetween(2, 3))->make()->toArray();
 				$product->categories()->createMany($categories);

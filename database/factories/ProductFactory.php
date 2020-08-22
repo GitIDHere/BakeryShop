@@ -12,10 +12,11 @@ $factory->define(Products\Product::class, function (Faker $faker) {
         'width' => $faker->randomFloat(null, 0, 225),
         'height' => $faker->randomFloat(null, 0, 225),
         'weight' => $faker->randomFloat(null, 0, 225),
-        'img' => $faker->imageUrl(),
+        //'img' => $faker->imageUrl(),
         'description' => $faker->text(),
         'quantity' => $faker->numberBetween(0, 100),
         'unit' => 'loaf',
+        'is_on_sale' => $faker->numberBetween(0, 1),
         'is_active' => $faker->numberBetween(0, 1),
     ];
 });

@@ -15,12 +15,4 @@ class RatingService extends ModelService implements IRatingService
 		$this->_ratingRepo = $repository;
 	}
 
-	/**
-	 * @param IProductModel $product
-	 * @return mixed
-	 */
-	public function make(IProductModel $product)
-	{
-		return $this->_ratingRepo->make($product);
-	}
 }

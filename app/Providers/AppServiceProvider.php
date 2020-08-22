@@ -25,8 +25,10 @@ class AppServiceProvider extends ServiceProvider
 		ServiceInterfaces\IProductService::class => Services\ProductService::class,
 		ServiceInterfaces\IProductTypeService::class => Services\ProductTypeService::class,
 		ServiceInterfaces\IRatingService::class => Services\RatingService::class,
-		ServiceInterfaces\IProductTypeImageService::class => Services\ProductTypeImageService::class,
 		ServiceInterfaces\ICategoriesService::class => Services\CategoryService::class,
+		ServiceInterfaces\IImageService::class => Services\ImageService::class,
+		ServiceInterfaces\IPromotedProductTypeService::class => Services\PromotedProductTypeService::class,
+		ServiceInterfaces\IPromotedProductService::class => Services\PromotedProductService::class,
 
 		RepoInterfaces\IUserRepository::class => Repositories\UserRepository::class,
 		RepoInterfaces\IUserAddressRepository::class => Repositories\UserAddressRepository::class,
@@ -38,8 +40,10 @@ class AppServiceProvider extends ServiceProvider
 		RepoInterfaces\IRatingRepository::class => Repositories\RatingRepository::class,
 		RepoInterfaces\IProductRepository::class => Repositories\ProductRepository::class,
 		RepoInterfaces\IProductTypeRepository::class => Repositories\ProductTypeRepository::class,
-		RepoInterfaces\IProductTypeImageRepository::class => Repositories\ProductTypeImageRepository::class,
 		RepoInterfaces\ICategoryRepository::class => Repositories\CategoryRepository::class,
+		RepoInterfaces\IImageRepository::class => Repositories\ImageRepository::class,
+		RepoInterfaces\IPromotedProductTypeRepository::class => Repositories\PromotedProductTypeRepository::class,
+		RepoInterfaces\IPromotedProductRepository::class => Repositories\PromotedProductRepository::class,
 
 		LoggerInterface::class => ErrorLogger::class,
 	];

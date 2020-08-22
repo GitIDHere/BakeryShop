@@ -1,6 +1,5 @@
 <?php namespace App\Repositories;
 
-use App\Models\Products\Bread;
 use App\Models\Products\Product;
 use App\Models\Products\ProductType;
 use App\Repositories\Interfaces\IBreadRepository;
@@ -8,7 +7,7 @@ use App\Repositories\Interfaces\IBreadRepository;
 class BreadRepository extends ProductRepository implements IBreadRepository
 {
 	/**
-	 * @var Bread
+	 * @var Product
 	 */
 	private $_bread;
 
@@ -21,6 +20,7 @@ class BreadRepository extends ProductRepository implements IBreadRepository
 	 * @var bool
 	 */
 	private $_is_eaten = true;
+
 
 	public function __construct(Product $bread)
 	{
@@ -46,25 +46,3 @@ class BreadRepository extends ProductRepository implements IBreadRepository
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

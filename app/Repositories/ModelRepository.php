@@ -29,7 +29,6 @@ class ModelRepository implements IModelRepository
 		return $query->exists();
 	}
 
-
 	/**
 	 * @param array $props
 	 * @return Model
@@ -50,10 +49,11 @@ class ModelRepository implements IModelRepository
 		return $this->_model::where('id', $id)->update($values);
 	}
 
-
 	/**
 	 * Delete a record
+	 *
 	 * @param $id
+	 * @return int
 	 */
 	public function delete($id)
 	{
@@ -63,6 +63,7 @@ class ModelRepository implements IModelRepository
 
 	/**
 	 * Find a record
+	 *
 	 * @param $id
 	 * @return mixed
 	 */

@@ -22,10 +22,11 @@ class CreateProductTable extends Migration
 			$table->decimal('width',8, 2, true);
 			$table->decimal('height',8, 2, true);
 			$table->decimal('weight',8, 2, true);
-			$table->string('img');
+			//$table->string('img');
 			$table->mediumText('description');
 			$table->integer('quantity');
 			$table->string('unit')->comment('What is the unit of measurement of this product?');
+			$table->boolean('is_on_sale');
 			$table->boolean('is_active');
             $table->timestamps();
 

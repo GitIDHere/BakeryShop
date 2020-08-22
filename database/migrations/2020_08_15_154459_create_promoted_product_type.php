@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductTypeImage extends Migration
+class CreatePromotedProductType extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,16 @@ class CreateProductTypeImage extends Migration
      */
     public function up()
     {
-        Schema::create('product_type_image', function (Blueprint $table) {
+        Schema::create('promoted_product_type', function (Blueprint $table) {
             $table->id();
             $table->foreignId('product_type_id');
-            $table->string('tile_image');
-            $table->boolean('is_active');
-            $table->boolean('is_lead')->comment("If set to 1 then the image is shown on the big tile");
+            $table->boolean('show_on_home_header_tiles')->default(false);
             $table->timestamps();
 
 			$table->foreign('product_type_id')
 				->references('id')
-				->on('Product_Type')
+				->on('product_type')
+				->cascadeOnDelete()
 			;
         });
     }
@@ -35,6 +34,6 @@ class CreateProductTypeImage extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_type_image');
+        Schema::dropIfExists('promoted_product_type');
     }
 }

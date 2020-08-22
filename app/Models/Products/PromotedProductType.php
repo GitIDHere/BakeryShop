@@ -1,17 +1,14 @@
-<?php namespace App\Models\Products\Images;
+<?php namespace App\Models\Products;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ProductTypeImage extends Model
+class PromotedProductType extends Model
 {
-	protected $table = 'product_type_image';
+	protected $table = 'promoted_product_type';
 
 	protected $fillable = [
-		'tile_image',
-		'is_active',
-		'is_lead',
+		'show_on_home_header_tiles'
 	];
-
 
 
 	/**

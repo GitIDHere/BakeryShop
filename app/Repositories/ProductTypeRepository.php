@@ -27,4 +27,13 @@ class ProductTypeRepository extends ModelRepository implements IProductTypeRepos
 		return ProductType::where('name', $name)->first();
 	}
 
+
+	/**
+	 * @param $limit
+	 * @return mixed
+	 */
+	public function getProductTypes($limit)
+	{
+		return ProductType::limit($limit)->get();
+	}
 }

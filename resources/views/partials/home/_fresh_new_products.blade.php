@@ -9,9 +9,8 @@
             </div>
             <div class="col-lg-8 col-md-8">
                 <ul class="filter__controls">
-                    <li class="active" data-filter="*">All</li>
                     @foreach($promoted_categories as $category)
-                        <li data-filter=".{{$category['filter_name']}}">{{$category['name']}}</li>
+                        <li class=" {{ ($loop->first ? 'active' : '') }} " data-filter=".{{$category['filter_name']}}">{{$category['name']}}</li>
                     @endforeach
                 </ul>
             </div>

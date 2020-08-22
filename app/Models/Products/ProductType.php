@@ -24,11 +24,20 @@ class ProductType extends Model
 	}
 
 	/**
-	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
+	 * @return \Illuminate\Database\Eloquent\Relations\HasOne
 	 */
-	public function productTypeImage()
+	public function promotedProductType()
 	{
-		return $this->hasMany('App\Models\Products\Images\ProductTypeImage');
+		return $this->hasOne('App\Models\Products\PromotedProductType');
 	}
 
+	/**
+	 * A polymorphic relationship to the Image table
+	 *
+	 * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+	 */
+	public function image()
+	{
+		return $this->morphMany('App\Models\Products\Images\Image', 'imagetable');
+	}
 }

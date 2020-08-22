@@ -1,6 +1,7 @@
 <?php namespace App\Models\Products;
 
 use App\Models\Products\Interfaces\IProductModel;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model implements IProductModel
@@ -13,10 +14,12 @@ class Product extends Model implements IProductModel
 		'width',
 		'height',
 		'weight',
-		'img',
+		//'img',
 		'description',
 		'quantity',
 		'unit',
+		'is_on_sale',
+		'is_active',
 	];
 
 	/**
@@ -103,4 +106,37 @@ class Product extends Model implements IProductModel
 	{
 		return $this->hasOne('App\Models\Products\ProductPrice');
 	}
+
+	/**
+	 * @return \Illuminate\Database\Eloquent\Relations\HasOne
+	 */
+	public function promotedProduct()
+	{
+		return $this->hasOne('App\Models\Products\PromotedProduct');
+	}
+
+	/**
+	 * A polymorphic relationship to the Image table
+	 *
+	 * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+	 */
+	public function image()
+	{
+		return $this->morphMany('App\Models\Products\Images\Image', 'imagetable');
+	}
+
+
+	/**
+	 * Calculate if the product is new based on when it was created and how many days have past
+	 * @param $value
+	 * @return bool
+	 */
+	public function getIsNewAttribute($value)
+	{
+		$todayDate = Carbon::now();
+		$created = $this->created_at;
+		$isNew = $created->diffInDays($todayDate) < 15;
+		return $isNew;
+	}
+
 }

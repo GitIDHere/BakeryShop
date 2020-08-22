@@ -15,20 +15,7 @@ class ProductService extends ModelService implements IProductService
 	public function __construct(IProductRepository $productRepository)
 	{
 		parent::__construct($productRepository);
-
 		$this->_productRepo = $productRepository;
-
-	}
-
-
-	/**
-	 * @param \App\Models\Products\ProductType $productType
-	 * @param array $props
-	 * @return mixed
-	 */
-	public function createProduct($productType, $props)
-	{
-		return $this->_productRepo->createProduct($productType, $props);
 	}
 
 }

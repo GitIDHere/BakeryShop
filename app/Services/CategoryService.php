@@ -18,24 +18,5 @@ class CategoryService extends ModelService implements ICategoriesService
 		$this->_categoryRepo = $categoryRepo;
 	}
 
-	/**
-	 * @param int $limit
-	 * @param bool $onlyPromoted
-	 * @return mixed
-	 */
-	public function getCategories($limit = 3, $onlyPromoted = null)
-	{
-		return $this->_categoryRepo->getCategories($limit, $onlyPromoted);
-	}
 
-	/**
-	 * @param Collection $categoryCollection
-	 * @param int $maxItemsPerCategory
-	 * @param bool $onlyActive
-	 * @return mixed
-	 */
-	public function getProducts(Collection $categoryCollection, $maxItemsPerCategory = 6, $onlyActive = null)
-	{
-		return $this->_categoryRepo->getProducts($categoryCollection, $maxItemsPerCategory, $onlyActive);
-	}
 }

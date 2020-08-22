@@ -16,13 +16,4 @@ class IngredientService extends ModelService implements IIngredientService
 		$this->_ingredientRepo = $repository;
 	}
 
-	/**
-	 * @param IProductModel $product
-	 * @param array $properties
-	 * @return mixed
-	 */
-	public function make(IProductModel $product, array $properties)
-	{
-		return $this->_ingredientRepo->make($product, $properties);
-	}
 }

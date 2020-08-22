@@ -24,13 +24,15 @@ class ProductPrice extends Model
 
 	/**
 	 * Get the discounted price
+	 * Attribute: discounted_price
 	 *
 	 * @param $value
 	 * @return float|int
 	 */
 	public function getDiscountedPriceAttribute($value)
 	{
-		return ($this->price_per_unit * ($this->discounted_percentage / 100));
+		$discount =($this->price_per_unit * ($this->discounted_percentage / 100));
+		return number_format(($this->price_per_unit - $discount), 2);
 	}
 
 }
