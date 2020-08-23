@@ -29,6 +29,7 @@ Created: Colorib
             var containerEl = document.querySelector('.property__gallery');
             var mixer = mixitup(containerEl);
         }
+        $('.filter__controls li:first-child').trigger("click");
     });
 
     /*------------------
