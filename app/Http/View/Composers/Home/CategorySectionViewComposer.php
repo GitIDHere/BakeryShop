@@ -1,4 +1,4 @@
-<?php namespace App\Http\View\Composers;
+<?php namespace App\Http\View\Composers\Home;
 
 use App\Repositories\Interfaces\IPromotedProductTypeRepository;
 use App\Services\Interfaces\IImageService;

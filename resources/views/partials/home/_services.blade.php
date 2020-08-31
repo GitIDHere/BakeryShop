@@ -6,7 +6,7 @@
                 <div class="services__item">
                     <i class="fa fa-truck"></i>
                     <h6>Free Delivery</h6>
-                    <p>For all oder over £20</p>
+                    <p>For all orders over £20</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">

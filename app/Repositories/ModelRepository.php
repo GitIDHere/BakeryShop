@@ -13,6 +13,13 @@ class ModelRepository implements IModelRepository
 		$this->_model = $model;
 	}
 
+	/**
+	 * @return Model
+	 */
+	public function getModel()
+	{
+		return $this->_model;
+	}
 
 	/**
 	 * Check if an entry exists in the database for the model record

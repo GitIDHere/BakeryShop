@@ -5,6 +5,8 @@ namespace App\Providers;
 use App\Http\Helpers\ErrorLogger;
 use App\Repositories;
 use App\Repositories\Interfaces as RepoInterfaces;
+use App\QueryBuilders;
+use App\QueryBuilders\Interfaces as QueryBulderInterfaces;
 use App\Services;
 use App\Services\Interfaces AS ServiceInterfaces;
 use Illuminate\Support\Facades\Schema;
@@ -44,6 +46,9 @@ class AppServiceProvider extends ServiceProvider
 		RepoInterfaces\IImageRepository::class => Repositories\ImageRepository::class,
 		RepoInterfaces\IPromotedProductTypeRepository::class => Repositories\PromotedProductTypeRepository::class,
 		RepoInterfaces\IPromotedProductRepository::class => Repositories\PromotedProductRepository::class,
+
+		QueryBulderInterfaces\IBaseQueryBuilder::class => QueryBuilders\ModelQueryBuilder::class,
+		QueryBulderInterfaces\IProductQueryBuilder::class => QueryBuilders\ProductQueryBuilder::class,
 
 		LoggerInterface::class => ErrorLogger::class,
 	];

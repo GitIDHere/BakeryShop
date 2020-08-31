@@ -1,10 +1,8 @@
-<?php namespace App\Http\View\Composers;
+<?php namespace App\Http\View\Composers\Home;
 
 use App\Repositories\Interfaces\ICategoryRepository;
 use App\Repositories\Interfaces\IProductRepository;
 use App\Services\Interfaces\IProductService;
-use App\Services\Interfaces\IPromotedProductService;
-use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class PromotedProductsViewComposer
@@ -15,15 +13,15 @@ class PromotedProductsViewComposer
 	private $_categoryRepo;
 
 	/**
-	 * @var IProductRepository
+	 * @var IProductService
 	 */
-	private $_productRepo;
+	private $_productService;
 
 
-	public function __construct(ICategoryRepository $catRepo, IProductRepository $productRepository)
+	public function __construct(ICategoryRepository $catRepo, IProductService $productService)
 	{
 		$this->_categoryRepo = $catRepo;
-		$this->_productRepo = $productRepository;
+		$this->_productService = $productService;
 	}
 
 	/**
@@ -34,24 +32,6 @@ class PromotedProductsViewComposer
      */
 	public function compose(View $view)
 	{
-		/*
-		 * -> promoted_categories
-		 * - filter_name
-		 * - name
-		 *
-		 * -> promoted_products
-		 * - categories
-		 * - img
-		 * - is_new
-		 * - out_of_stock
-		 * - on_sale
-		 * - name
-		 * - avg_rating
-		 * - sale_price
-		 * - price
-		 *
-		 */
-
 		$categoriesColl = $this->_categoryRepo->getCategories(4, true);
 
 		$categoriesList = $categoriesColl->map(function($catCollection){
@@ -62,7 +42,7 @@ class PromotedProductsViewComposer
 		})->toArray();
 
 
-		$promotedProducts = $this->_productRepo->getPromotedProductsByCategory($categoriesColl, 8);
+		$promotedProducts = $this->_productService->getFeaturedProductsByCategory($categoriesColl, 8);
 
 		$categoryProducts = $promotedProducts->map(function ($product)
 		{
@@ -97,4 +77,3 @@ class PromotedProductsViewComposer
 		$view->with('promoted_categories', $categoriesList)->with('promoted_products', $categoryProducts);
 	}
 }
-

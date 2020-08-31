@@ -2,6 +2,8 @@
 
 interface IModelRepository
 {
+	public function getModel();
+
 	public function exists($params);
 
 	public function create($props);
