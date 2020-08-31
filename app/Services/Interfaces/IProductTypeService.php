@@ -1,7 +1,8 @@
 <?php namespace App\Services\Interfaces;
 
+use App\Models\Products\ProductType;
 
 interface IProductTypeService extends IModelService
 {
-	public function createProductType($name);
+	public function createProductType(string $name) : ProductType;
 }

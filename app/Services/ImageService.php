@@ -1,10 +1,15 @@
 <?php namespace App\Services;
 
+use App\Models\Products\Product;
+use App\Models\Products\ProductType;
 use App\Repositories\Interfaces\IImageRepository;
 use App\Services\Interfaces\IImageService;
 
 class ImageService extends ModelService implements IImageService
 {
+	/**
+	 * @var IImageRepository
+	 */
 	private $_imgRepo;
 
 	public function __construct(IImageRepository $imgRepo)
@@ -14,13 +19,22 @@ class ImageService extends ModelService implements IImageService
 	}
 
 	/**
-	 * @param $objColl
-	 * @param $orderBy
-	 * @return mixed
+	 * @param int $productTypeId
+	 * @return array
 	 */
-	public function getImagesFor($objColl, $orderBy)
+	public function getProductTypeImages(int $productTypeId) : array
 	{
-		$imgColl = $this->_imgRepo->getImagesBy($objColl, $orderBy);
-		return $imgColl;
+		$images = $this->_imgRepo->getObjectImages($productTypeId, ProductType::class);
+		return $images;
+	}
+
+	/**
+	 * @param int $productId
+	 * @return array
+	 */
+	public function getProductImages(int $productId) : array
+	{
+		$images = $this->_imgRepo->getObjectImages($productId, Product::class);
+		return $images;
 	}
 }

@@ -1,10 +1,14 @@
 <?php namespace App\Services;
 
+use App\Models\Users\UserAddress;
 use App\Repositories\Interfaces\IUserAddressRepository;
 use App\Services\Interfaces\IUserAddressService;
 
 class UserAddressService extends ModelService implements IUserAddressService
 {
+	/**
+	 * @var IUserAddressRepository
+	 */
 	private $_userAddressRepo;
 
 
@@ -20,7 +24,7 @@ class UserAddressService extends ModelService implements IUserAddressService
 	 * @param array $addressDetails
 	 * @return mixed
 	 */
-	public function createAddress($userId, $addressDetails = [])
+	public function createAddress($userId, $addressDetails = []) : UserAddress
 	{
 		$existParams[] = [
 			'col' => 'user_id',

@@ -1,15 +1,21 @@
 <?php namespace App\Repositories;
 
+use App\QueryBuilders\ModelQueryBuilder;
 use App\Repositories\Interfaces\IModelRepository;
 use Illuminate\Database\Eloquent\Model;
 
-class ModelRepository implements IModelRepository
+class ModelRepository extends ModelQueryBuilder implements IModelRepository
 {
+	/**
+	 * @var Model
+	 */
 	protected $_model;
 
 
 	public function __construct(Model $model)
 	{
+		parent::__construct($model);
+
 		$this->_model = $model;
 	}
 

@@ -1,9 +1,6 @@
 <?php namespace App\Services\Interfaces;
 
-use Illuminate\Support\Collection;
-
 interface IProductService extends IModelService
 {
-	public function getFeaturedProductsByCategory(Collection $collection, $maxItemsPerCategory);
-
+	public function getFeaturedProductsByCategories(array $categories, int $itemsPerCategory) : array;
 }

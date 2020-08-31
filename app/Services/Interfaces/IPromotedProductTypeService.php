@@ -2,5 +2,5 @@
 
 interface IPromotedProductTypeService extends IModelService
 {
-
+	public function getHeaderTiles(int $limit) : array;
 }

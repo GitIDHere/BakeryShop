@@ -3,5 +3,6 @@
 
 interface ICategoriesService extends IModelService
 {
+	public function getPromotedCategories(int $limit) : array;
 
 }

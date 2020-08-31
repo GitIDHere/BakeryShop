@@ -1,5 +1,6 @@
 <?php namespace App\Services;
 
+use App\Models\Products\ProductType;
 use App\Repositories\Interfaces\IProductTypeRepository;
 use App\Services\Interfaces\IProductTypeService;
 
@@ -22,7 +23,7 @@ class ProductTypeService extends ModelService implements IProductTypeService
 	 * @param $name
 	 * @return mixed
 	 */
-	public function createProductType($name)
+	public function createProductType(string $name) : ProductType
 	{
 		// Check if the ProductType doesn't already exist
 		$existingProductType = $this->_productTypeRepo->getByName($name);

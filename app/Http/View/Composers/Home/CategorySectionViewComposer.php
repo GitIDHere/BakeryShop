@@ -2,6 +2,8 @@
 
 use App\Repositories\Interfaces\IPromotedProductTypeRepository;
 use App\Services\Interfaces\IImageService;
+use App\Services\Interfaces\IPromotedProductService;
+use App\Services\Interfaces\IPromotedProductTypeService;
 use Illuminate\View\View;
 
 class CategorySectionViewComposer
@@ -12,15 +14,15 @@ class CategorySectionViewComposer
 	private $_imgService;
 
 	/**
-	 * @var
+	 * @var IPromotedProductService
 	 */
-	private $_promotedProductTypeRepo;
+	private $_promotedProductTypeService;
 
 
-	public function __construct(IImageService $imgService, IPromotedProductTypeRepository $promotedProductTypeRepo)
+	public function __construct(IImageService $imgService, IPromotedProductTypeService $promotedProductTypeService)
 	{
 		$this->_imgService = $imgService;
-		$this->_promotedProductTypeRepo = $promotedProductTypeRepo;
+		$this->_promotedProductTypeService = $promotedProductTypeService;
 	}
 
 
@@ -32,11 +34,13 @@ class CategorySectionViewComposer
      */
 	public function compose(View $view)
 	{
-		$promotedProductTypes = $this->_promotedProductTypeRepo->getHeaderTiles(5);
+		$productTypes = $this->_promotedProductTypeService->getHeaderTiles(5);
+		$productTypeCollection = collect($productTypes);
 
-		//Order by weight
-		$orderBy = ['col' => 'weight', 'dir' => 'DESC'];
-		$imageCollection = $this->_imgService->getImagesFor($promotedProductTypes, $orderBy);
+		$imageCollection = $productTypeCollection->map(function($productType)
+		{
+			return $this->_imgService->getProductTypeImages($productType->id);
+		})->flatten();
 
 		// Lead image - the first one from the list
 		$leadImg = $imageCollection->shift();

@@ -2,15 +2,16 @@
 
 use App\Repositories\Interfaces\ICategoryRepository;
 use App\Repositories\Interfaces\IProductRepository;
+use App\Services\Interfaces\ICategoriesService;
 use App\Services\Interfaces\IProductService;
 use Illuminate\View\View;
 
 class PromotedProductsViewComposer
 {
 	/**
-	 * @var ICategoryRepository
+	 * @var ICategoriesService
 	 */
-	private $_categoryRepo;
+	private $_categoryService;
 
 	/**
 	 * @var IProductService
@@ -18,9 +19,9 @@ class PromotedProductsViewComposer
 	private $_productService;
 
 
-	public function __construct(ICategoryRepository $catRepo, IProductService $productService)
+	public function __construct(ICategoriesService $categoriesService, IProductService $productService)
 	{
-		$this->_categoryRepo = $catRepo;
+		$this->_categoryService = $categoriesService;
 		$this->_productService = $productService;
 	}
 
@@ -32,19 +33,18 @@ class PromotedProductsViewComposer
      */
 	public function compose(View $view)
 	{
-		$categoriesColl = $this->_categoryRepo->getCategories(4, true);
+		$categories = $this->_categoryService->getPromotedCategories(4);
 
-		$categoriesList = $categoriesColl->map(function($catCollection){
-			return [
-				'name' => $catCollection->name,
-				'filter_name' => $catCollection->parsed_name,
+		foreach ($categories as $category) {
+			$categoriesList[] = [
+				'name' => $category->name,
+				'filter_name' => $category->parsed_name,
 			];
-		})->toArray();
+		}
 
+		$promotedProducts = $this->_productService->getFeaturedProductsByCategories($categories, 8);
 
-		$promotedProducts = $this->_productService->getFeaturedProductsByCategory($categoriesColl, 8);
-
-		$categoryProducts = $promotedProducts->map(function ($product)
+		$categoryProducts = collect($promotedProducts)->map(function ($product)
 		{
 			$categoryNames = $product->categories->pluck('name')->all();
 

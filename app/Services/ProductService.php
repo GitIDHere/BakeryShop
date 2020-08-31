@@ -1,54 +1,32 @@
 <?php namespace App\Services;
 
-use App\QueryBuilders\Interfaces\IProductQueryBuilder;
 use App\Repositories\Interfaces\IProductRepository;
 use App\Services\Interfaces\IProductService;
-use Illuminate\Support;
 
 class ProductService extends ModelService implements IProductService
 {
 	/**
-	 * @var IProductQueryBuilder
+	 * @var IProductRepository
 	 */
-	private $_productQueryBuilder;
+	private $_productRepo;
 
 
-	public function __construct(IProductRepository $productRepository, IProductQueryBuilder $builder)
+	public function __construct(IProductRepository $productRepository)
 	{
 		parent::__construct($productRepository);
-		$this->_productQueryBuilder = $builder;
 
-		$model = $this->_repo->getModel();
-		$this->_productQueryBuilder->setModel($model);
+		$this->_productRepo = $productRepository;
 	}
 
 
 	/**
-	 * @param Support\Collection $categories
-	 * @param $maxItemsPerCategory
-	 * @return Support\Collection
+	 * @param array $categories
+	 * @param int $itemsPerCategory
+	 * @return array
 	 */
-	public function getFeaturedProductsByCategory(Support\Collection $categories, $maxItemsPerCategory) : Support\Collection
+	public function getFeaturedProductsByCategories(array $categories, int $itemsPerCategory): array
 	{
-		$productList = $categories->map(function($category) use ($maxItemsPerCategory)
-		{
-			$product = $this->_productQueryBuilder
-				->isActive(1)
-				->isFeatured(1)
-				->hasCategory($category)
-				->limit($maxItemsPerCategory)
-				->execute()
-			;
-
-			return $product;
-		})
-		->reject(function($collection){
-			return (empty($collection));
-		})
-		->flatMap(function($productCollection){
-			return $productCollection;
-		});
-
+		$productList = $this->_productRepo->getProductsFromCategories($categories, true, true, $itemsPerCategory);
 		return $productList;
 	}
 

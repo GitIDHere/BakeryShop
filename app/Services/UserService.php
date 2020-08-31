@@ -1,5 +1,6 @@
 <?php namespace App\Services;
 
+use App\Models\Users\User;
 use App\Repositories\Interfaces\IUserRepository;
 use Illuminate\Support\Facades\Hash;
 
@@ -23,7 +24,7 @@ class UserService extends ModelService implements Interfaces\IUserService
 	 * @param $password
 	 * @return mixed
 	 */
-	public function registerUser($email, $password)
+	public function registerUser(string $email, string $password) : User
 	{
 		$userExistParams[] = [
 			'col' => 'email',

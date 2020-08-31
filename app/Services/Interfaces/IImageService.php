@@ -2,5 +2,7 @@
 
 interface IImageService extends IModelService
 {
-	public function getImagesFor($objColl, $orderBy);
+	public function getProductTypeImages(int $productTypeId) : array;
+
+	public function getProductImages(int $productId) : array;
 }

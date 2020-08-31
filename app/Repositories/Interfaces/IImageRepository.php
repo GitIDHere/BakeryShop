@@ -2,5 +2,5 @@
 
 interface IImageRepository extends IModelRepository
 {
-	public function getImagesBy($objCollection, $orderBy);
+	public function getObjectImages(int $objId, string $objClass) : array;
 }

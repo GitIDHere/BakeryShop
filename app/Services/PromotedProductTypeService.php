@@ -18,4 +18,19 @@ class PromotedProductTypeService extends ModelService implements IPromotedProduc
 		$this->_promotedProductTypeRepo = $promotedProductTypeRepository;
 	}
 
+
+	/**
+	 * @param $limit
+	 * @return mixed
+	 */
+	public function getHeaderTiles(int  $limit) : array
+	{
+		$promotedProductTypes = $this->_promotedProductTypeRepo->getProductTypes(true, $limit);
+
+		return collect($promotedProductTypes)->map(function($promotedProductType){
+				return $promotedProductType->producttype;
+			})->flatten()->all()
+		;
+	}
+
 }

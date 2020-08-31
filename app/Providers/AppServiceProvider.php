@@ -47,8 +47,13 @@ class AppServiceProvider extends ServiceProvider
 		RepoInterfaces\IPromotedProductTypeRepository::class => Repositories\PromotedProductTypeRepository::class,
 		RepoInterfaces\IPromotedProductRepository::class => Repositories\PromotedProductRepository::class,
 
-		QueryBulderInterfaces\IBaseQueryBuilder::class => QueryBuilders\ModelQueryBuilder::class,
+		QueryBulderInterfaces\IModelQueryBuilder::class => QueryBuilders\ModelQueryBuilder::class,
 		QueryBulderInterfaces\IProductQueryBuilder::class => QueryBuilders\ProductQueryBuilder::class,
+		QueryBulderInterfaces\ICategoryQueryBuilder::class => QueryBuilders\CategoryQueryBuilder::class,
+		QueryBulderInterfaces\IImageQueryBuilder::class => QueryBuilders\ImageQueryBuilder::class,
+		QueryBulderInterfaces\IUserAddressQueryBuilder::class => QueryBuilders\UserAddressQueryBuilder::class,
+		QueryBulderInterfaces\IPromotedProductTypeQueryBuilder::class => QueryBuilders\PromotedProductTypeQueryBuilder::class,
+		QueryBulderInterfaces\IProductTypeQueryBuilder::class => QueryBuilders\ProductTypeQueryBuilder::class,
 
 		LoggerInterface::class => ErrorLogger::class,
 	];

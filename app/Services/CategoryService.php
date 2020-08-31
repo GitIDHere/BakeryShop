@@ -19,4 +19,13 @@ class CategoryService extends ModelService implements ICategoriesService
 	}
 
 
+	/**
+	 * @param int $limit
+	 * @return array
+	 */
+	public function getPromotedCategories(int $limit) : array
+	{
+		return $this->_categoryRepo->getPromotedCategories($limit,true);
+	}
+
 }

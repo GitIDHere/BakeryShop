@@ -1,58 +1,47 @@
 <?php namespace App\Repositories;
 
 use App\Models\Products\Images\Image;
+use App\Models\Products\Product;
+use App\Models\Products\ProductType;
+use App\QueryBuilders\Interfaces\IImageQueryBuilder;
 use App\Repositories\Interfaces\IImageRepository;
 
 class ImageRepository extends ModelRepository implements IImageRepository
 {
+	/**
+	 * @var Image
+	 */
 	private $_image;
 
-	public function __construct(Image $image)
+	/**
+	 * @var IImageQueryBuilder
+	 */
+	private $_queryBuilder;
+
+
+	public function __construct(Image $image, IImageQueryBuilder $builder)
 	{
 		parent::__construct($image);
+
 		$this->_image = $image;
+		$this->_queryBuilder = $builder;
 	}
+
 
 	/**
-	 * @param $objCollection
-	 * @param $orderBy
-	 * @return \Illuminate\Support\Collection
+	 * @param int $objId
+	 * @param string $objClass
+	 * @return array
 	 */
-	public function getImagesBy($objCollection, $orderBy)
+	public function getObjectImages(int $objId, string $objClass) : array
 	{
-		$imgArray = [];
-		$objCollection->each(function($obj) use (&$imgArray)
-		{
-			$imgs = $obj->image->all();
-			if (!empty($imgs)) {
-				foreach ($imgs as $img) {
-					$imgArray[] = $img;
-				}
-			}
-		});
+		$images = $this->_queryBuilder
+			->initQueryBuilder()
+			->whereLinkedObject($objId, $objClass)
+			->orderBy('weight', 'desc')
+			->execute()
+		;
 
-		$orderCol = $orderBy['col'];
-		$orderDir = strtolower($orderBy['dir']);
-
-		uasort($imgArray, function ($a, $b) use($orderCol, $orderDir)
-		{
-
-			if (isset($a->{$orderCol}) == false || isset($b->{$orderCol}) == false) {
-				return  1;
-			}
-
-			if ($orderDir == 'desc') {
-				return $a->{$orderCol} > $b->{$orderCol} ? -1 : 1;
-			}
-
-			if ($orderDir == 'asc') {
-				return $a->{$orderCol} > $b->{$orderCol} ? 1 : -1;
-			}
-
-			return 0;
-		});
-
-		return collect($imgArray);
+		return $images;
 	}
-
 }

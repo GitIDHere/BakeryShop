@@ -18,7 +18,7 @@ class IngredientRepository extends ModelRepository implements IIngredientReposit
 	/**
 	 * @param IProductModel $product
 	 * @param array $ingredientList
-	 * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Support\Collection
+	 * @return mixed
 	 */
 	public function make(IProductModel $product, array $ingredientList)
 	{

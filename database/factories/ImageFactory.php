@@ -6,7 +6,7 @@ use Faker\Generator as Faker;
 
 $factory->define(\App\Models\Products\Images\Image::class, function (Faker $faker) {
     return [
-        'path' => $faker->imageUrl(),
+        'path' => 'https://loremflickr.com/640/360',
 		'weight' => $faker->numberBetween(0, 100)
     ];
 });

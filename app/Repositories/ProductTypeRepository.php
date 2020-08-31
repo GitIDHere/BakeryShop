@@ -1,6 +1,7 @@
 <?php namespace App\Repositories;
 
 use App\Models\Products\ProductType;
+use App\QueryBuilders\Interfaces\IProductQueryBuilder;
 use App\Repositories\Interfaces\IProductTypeRepository;
 
 class ProductTypeRepository extends ModelRepository implements IProductTypeRepository
@@ -10,12 +11,18 @@ class ProductTypeRepository extends ModelRepository implements IProductTypeRepos
 	 */
 	private $_productTypeModel;
 
+	/**
+	 * @var IProductQueryBuilder
+	 */
+	private $_queryBuilder;
 
-	public function __construct(ProductType $model)
+
+	public function __construct(ProductType $model, IProductQueryBuilder $queryBuilder)
 	{
 		parent::__construct($model);
 
 		$this->_productTypeModel = $model;
+		$this->_queryBuilder = $queryBuilder;
 	}
 
 	/**
@@ -25,15 +32,5 @@ class ProductTypeRepository extends ModelRepository implements IProductTypeRepos
 	public static function getByName($name)
 	{
 		return ProductType::where('name', $name)->first();
-	}
-
-
-	/**
-	 * @param $limit
-	 * @return mixed
-	 */
-	public function getProductTypes($limit)
-	{
-		return ProductType::limit($limit)->get();
 	}
 }

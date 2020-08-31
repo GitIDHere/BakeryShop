@@ -1,6 +1,6 @@
 <?php namespace App\QueryBuilders\Interfaces;
 
-interface IProductQueryBuilder extends IBaseQueryBuilder
+interface IProductQueryBuilder extends IModelQueryBuilder
 {
 	public function isActive($isActive) : IProductQueryBuilder;
 

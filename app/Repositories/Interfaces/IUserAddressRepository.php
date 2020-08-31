@@ -1,5 +1,7 @@
 <?php namespace App\Repositories\Interfaces;
 
+use App\Models\Users\UserAddress;
+
 interface IUserAddressRepository extends IModelRepository
 {
 	/**
@@ -8,7 +10,7 @@ interface IUserAddressRepository extends IModelRepository
 	 * @param int $userId
 	 * @return mixed
 	 */
-	public function getByUser(int $userId);
+	public function getByUser(int $userId) : UserAddress;
 
 
 	/**
@@ -18,6 +20,6 @@ interface IUserAddressRepository extends IModelRepository
 	 * @param array $addressDetails
 	 * @return mixed
 	 */
-	public function createAddress(int $userId, $addressDetails = []);
+	public function createAddress(int $userId, $addressDetails = []) : UserAddress;
 
 }
